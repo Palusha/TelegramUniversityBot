@@ -1,0 +1,5 @@
+start - Get started
+add_discipline - Add discipline to your list
+list_disciplines - Show all your disciplines
+help - Commands list
+cancel - Cancel any operation

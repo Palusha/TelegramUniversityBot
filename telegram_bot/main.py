@@ -1,23 +1,14 @@
-import logging
-
-from telegram.ext import ApplicationBuilder, CommandHandler
+from telegram.ext import ApplicationBuilder
 
 import settings
-import handlers
-
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
-
-app = ApplicationBuilder().token(settings.BOT_TOKEN).build()
-
-
-def setup_handlers():
-    app.add_handler(CommandHandler("start", handlers.welcome))
-    app.add_handler(CommandHandler("help", handlers.help))
+from bot import TelegramBot
+from database.db import DataBase
+from handlers import Handler
 
 
 if __name__ == '__main__':
-    setup_handlers()
-    app.run_polling()
+    app = ApplicationBuilder().token(settings.BOT_TOKEN).build()
+    db = DataBase(db_uri=settings.DB_URI, db_name=settings.DB_NAME)
+    handler = Handler(database=db)
+    bot = TelegramBot(app=app, handler=handler)
+    bot.run_polling()
