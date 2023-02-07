@@ -3,7 +3,6 @@ from telegram.ext import (
     CommandHandler, MessageHandler, filters
     )
 
-from database.db import DataBase
 from handlers import Handler
 
 

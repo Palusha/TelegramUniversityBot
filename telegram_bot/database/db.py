@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 class DataBase:
     def __init__(self, db_uri: str, db_name: str) -> None:
-        self._client = MongoClient(db_uri, username='username', password='password')
+        self._client = MongoClient(db_uri)
         self._db = self._client[db_name]
 
         self._disciplines_collection = self._db['disciplines']
