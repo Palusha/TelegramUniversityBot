@@ -1,5 +1,7 @@
 start - Get started
 add_discipline - Add discipline to your list
 list_disciplines - Show all your disciplines
+add_discipline_item - Add item to your discipline
+remove_discipline - Remove discipline from your list
 help - Commands list
 cancel - Cancel any operation
